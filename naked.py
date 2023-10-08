@@ -12,8 +12,19 @@ print('Asteroid processing service')
 print('Loading configuration from file')
 
 # Definining the API key and URL for the data request
-nasa_api_key = "uwZhNf0wYgs7waqOTaZWiBwJwnpXLgRGzhWZzufr"
+nasa_api_key = ""
 nasa_api_url = "https://api.nasa.gov/neo/"
+
+# Attempting to read the API key and URL from the config.ini file
+try:
+	config = ConfigParser()
+	config.read('config.ini')
+
+	nasa_api_key = config.get('nasa', 'api_key')
+	nasa_api_url = config.get('nasa', 'api_url')
+except:
+	print("Unable to read NASA API key and URL data from configuration file")
+
 
 # Getting todays date
 dt = datetime.now()
