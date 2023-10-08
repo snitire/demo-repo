@@ -4,6 +4,7 @@ import json
 import datetime
 import time
 import yaml
+from configparser import ConfigParser
 
 from datetime import datetime
 print('Asteroid processing service')
